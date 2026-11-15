@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdtnax2jel3wt"
+path="res://.godot/imported/Snow Music.mp3-f638d2d6adf61e5fadc218b9326f64a5.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Snow Music.mp3"
+dest_files=["res://.godot/imported/Snow Music.mp3-f638d2d6adf61e5fadc218b9326f64a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

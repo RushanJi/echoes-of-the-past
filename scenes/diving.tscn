@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/diving.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/wintermapminigamebackdrop.jpg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/ui/key.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/ui/diver.png" id="4"]
+
+[node name="Diving" type="CanvasLayer"]
+script = ExtResource("1")
+layer = 9
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+position = Vector2(240, 180)
+scale = Vector2(0.95, 0.95)
+
+[node name="Water" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 0
+offset_right = 480
+offset_bottom = 360
+color = Color(0, 0.2, 0.45, 0.4)
+mouse_filter = 2
+
+[node name="Key" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+position = Vector2(420, 300)
+scale = Vector2(0.16, 0.16)
+
+[node name="Diver" type="Sprite2D" parent="."]
+texture = ExtResource("4")
+position = Vector2(70, 60)
+scale = Vector2(0.24, 0.24)
+
+[node name="Bubbles" type="Node2D" parent="."]
+
+
+[node name="Label" type="Label" parent="."]
+offset_left = 80
+offset_top = 8
+offset_right = 400
+offset_bottom = 28
+text = "Click the bubbles to dive!  0/10"
+mouse_filter = 2
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4

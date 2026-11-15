@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/desert.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert.png" id="2"]
+[ext_resource type="Script" path="res://scripts/spot.gd" id="3"]
+[ext_resource type="Texture2D" path="res://assets/props/desertnpc.png" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="5"]
+[ext_resource type="Texture2D" path="res://assets/props/desertmerchant.png" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="7"]
+
+[node name="Desert" type="Node2D"]
+script = ExtResource("1")
+y_sort_enabled = true
+music = "desert"
+
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+scale = Vector2(1.5, 1.5)
+z_index = -10
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Outline" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-108, -381, 132, -381, 132, -243, 60, -228, 60, -21, 732, -21, 732, 694.5, -723, 694.5, -723, -21, -51, -21, -51, -228, -108, -243)
+
+[node name="Block1" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-475.5, -85.5, -198, -85.5, -198, 199.5, -475.5, 199.5)
+
+[node name="Block2" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-588, -3, -468, -3, -468, 169.5, -588, 169.5)
+
+[node name="Block3" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(207, -40.5, 492, -40.5, 492, 222, 207, 222)
+
+[node name="Block4" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(484.5, 72, 642, 72, 642, 237, 484.5, 237)
+
+[node name="Block5" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-708, 237, -370.5, 237, -370.5, 529.5, -708, 529.5)
+
+[node name="Block6" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-175.5, 214.5, 334.5, 214.5, 334.5, 537, -175.5, 537)
+
+[node name="Block7" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(582, 267, 747, 267, 747, 417, 582, 417)
+
+[node name="Block8" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-753, 132, -655.5, 132, -655.5, 297, -753, 297)
+
+[node name="Block9" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(627, 447, 732, 447, 732, 582, 627, 582)
+
+[node name="Block10" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-723, 582, -483, 582, -483, 694.5, -723, 694.5)
+
+[node name="Block11" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(432, 537, 732, 537, 732, 694.5, 432, 694.5)
+
+[node name="Block12" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(447, 312, 582, 312, 582, 357, 447, 357)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(12, 627)
+
+[node name="CaveExit" type="Marker2D" parent="."]
+position = Vector2(12, 675)
+
+[node name="Present" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Past" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spots" type="Node2D" parent="."]
+
+
+[node name="CastleDoor" type="Node2D" parent="Spots"]
+script = ExtResource("3")
+position = Vector2(12, -375)
+reach = 100
+
+[node name="Villager1" parent="Present" instance=ExtResource("5")]
+position = Vector2(-273, 282)
+dialogue = "desert_1"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager2" parent="Present" instance=ExtResource("5")]
+position = Vector2(387, 319.5)
+dialogue = "desert_2"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager3" parent="Present" instance=ExtResource("5")]
+position = Vector2(-393, 604.5)
+dialogue = "desert_3"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager4" parent="Present" instance=ExtResource("5")]
+position = Vector2(672, 132)
+dialogue = "desert_4"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager5" parent="Present" instance=ExtResource("5")]
+position = Vector2(132, 72)
+dialogue = "desert_5"
+texture = ExtResource("4")
+height = 90
+
+[node name="Merchant" parent="Present" instance=ExtResource("5")]
+position = Vector2(-18, 571.5)
+dialogue = ""
+texture = ExtResource("6")
+height = 105
+
+[node name="Ancestor" parent="Past" instance=ExtResource("5")]
+position = Vector2(-18, 571.5)
+dialogue = ""
+texture = ExtResource("6")
+height = 105
+modulate = Color(1, 0.9, 0.7, 1)
+
+[node name="ScorpionPoints" type="Node2D" parent="."]
+
+
+[node name="Point1" type="Marker2D" parent="ScorpionPoints"]
+position = Vector2(-678, 57)
+
+[node name="Point2" type="Marker2D" parent="ScorpionPoints"]
+position = Vector2(12, -288)
+
+[node name="Point3" type="Marker2D" parent="ScorpionPoints"]
+position = Vector2(627, 34.5)
+
+[node name="Point4" type="Marker2D" parent="ScorpionPoints"]
+position = Vector2(-273, 642)
+
+[node name="Point5" type="Marker2D" parent="ScorpionPoints"]
+position = Vector2(507, 492)
+
+[node name="Scorpions" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("7")]
+

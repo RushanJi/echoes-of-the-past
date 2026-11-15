@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/cave.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/maps/cave.jpg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/props/chest.png" id="3"]
+[ext_resource type="Script" path="res://scripts/spot.gd" id="4"]
+[ext_resource type="Texture2D" path="res://assets/props/cavenpc.png" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="6"]
+[ext_resource type="Texture2D" path="res://assets/props/cavefence.png" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="8"]
+
+[node name="Cave" type="Node2D"]
+script = ExtResource("1")
+y_sort_enabled = true
+music = "cave"
+
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+scale = Vector2(1.41, 1.41)
+z_index = -10
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Outline" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-575.16, -565.31, -452.81, -583.59, -365.62, -312.19, -333.28, -298.12, -307.97, -361.41, -298.12, -537.19, -101.25, -555.47, -59.06, -540, -59.06, -663.75, 46.41, -663.75, 46.41, -537.19, 137.81, -625.78, 201.09, -548.44, 281.25, -537.19, 310.78, -590.62, 475.31, -613.12, 576.56, -558.28, 608.91, -410.62, 475.31, -66.09, 665.16, 229.22, 660.94, 426.09, 555.47, 524.53, 405, 513.28, 323.44, 437.34, 454.22, 320.62, 397.97, 102.66, 292.5, 39.38, -2.81, 334.69, -21.09, 475.31, -372.66, 468.28, -607.5, 489.38, -614.53, 194.06, -298.12, 208.12, -94.22, 257.34, 187.03, -47.81, 25.31, -30.94, 18.28, -185.62, -16.88, -270, -185.62, -284.06, -234.84, -199.69, -241.88, -87.19, -457.03, -98.44, -466.88, -178.59, -639.84, -319.22, -632.81, -431.72)
+
+[node name="Block1" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-544.22, -554.06, -473.91, -554.06, -473.91, -520.31, -544.22, -520.31)
+
+[node name="Chest" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+position = Vector2(-509.06, -523.12)
+scale = Vector2(0.2, 0.2)
+offset = Vector2(0, -152.5)
+
+[node name="Spots" type="Node2D" parent="."]
+
+
+[node name="ChestSpot" type="Node2D" parent="Spots"]
+script = ExtResource("4")
+position = Vector2(-509.06, -509.06)
+reach = 90
+
+[node name="ExitLine" type="Marker2D" parent="."]
+position = Vector2(-7.03, -621.56)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(-466.88, 376.88)
+
+[node name="SpawnExit" type="Marker2D" parent="."]
+position = Vector2(-7.03, -466.88)
+
+[node name="Present" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Past" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Elder" parent="Present" instance=ExtResource("6")]
+position = Vector2(250.31, -347.34)
+dialogue = ""
+texture = ExtResource("5")
+height = 100
+
+[node name="Mapkeeper" parent="Present" instance=ExtResource("6")]
+position = Vector2(475.31, -417.66)
+dialogue = "cave_2"
+texture = ExtResource("5")
+height = 100
+
+[node name="Initiate" parent="Present" instance=ExtResource("6")]
+position = Vector2(151.88, -213.75)
+dialogue = "cave_3"
+texture = ExtResource("5")
+height = 100
+
+[node name="Scribe" parent="Present" instance=ExtResource("6")]
+position = Vector2(-368.44, -213.75)
+dialogue = "cave_4"
+texture = ExtResource("5")
+height = 100
+
+[node name="Guard" parent="Present" instance=ExtResource("6")]
+position = Vector2(-354.38, 348.75)
+dialogue = "cave_5"
+texture = ExtResource("5")
+height = 100
+
+[node name="Healer" parent="Present" instance=ExtResource("6")]
+position = Vector2(109.69, -487.97)
+dialogue = "cave_6"
+texture = ExtResource("5")
+height = 100
+
+[node name="Fence" type="Node2D" parent="Present"]
+position = Vector2(-7.03, -537.19)
+
+[node name="Sprite2D" type="Sprite2D" parent="Present/Fence"]
+texture = ExtResource("7")
+position = Vector2(0, 0)
+scale = Vector2(0.39, 0.39)
+offset = Vector2(0, -121)
+
+[node name="Body" type="StaticBody2D" parent="Present/Fence"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionPolygon2D" parent="Present/Fence/Body"]
+build_mode = 1
+polygon = PackedVector2Array(-54.84, -16.88, 56.25, -16.88, 56.25, 5.62, -54.84, 5.62)
+
+[node name="FenceSpot" type="Node2D" parent="Present"]
+script = ExtResource("4")
+position = Vector2(-7.03, -509.06)
+reach = 80
+dialogue = "fence"
+
+[node name="Player" parent="." instance=ExtResource("8")]
+

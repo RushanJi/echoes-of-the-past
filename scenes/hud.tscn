@@ -1,0 +1,263 @@
+[gd_scene load_steps=10 format=3 uid="uid://gtonbysg7nr8"]
+
+[ext_resource type="Script" uid="uid://dq3104iownpot" path="res://scripts/hud.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ciso4ou1w6kki" path="res://assets/ui/health_10.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dfj1r1vplwhd1" path="res://assets/ui/timegem.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dw4dshvlmkfq4" path="res://assets/ui/firegem.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://76fb2lwlwvpk" path="res://assets/ui/icegem.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c1sh03nr52m5r" path="res://assets/ui/key.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b2nd1h21m215l" path="res://assets/ui/minimap.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bvvuikka3c1hx" path="res://assets/ui/big_map.jpg" id="8"]
+[ext_resource type="Texture2D" uid="uid://bw6m67pov7gpk" path="res://assets/ui/fast_travel_icon.png" id="9"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+position = Vector2(10, 314)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+centered = false
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+
+[node name="TimeGem" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 38.0
+offset_bottom = 38.0
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FireGem" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = 8.0
+offset_right = 76.0
+offset_bottom = 38.0
+mouse_filter = 2
+texture = ExtResource("4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IceGem" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 84.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 38.0
+mouse_filter = 2
+texture = ExtResource("5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Key" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 46.0
+offset_right = 38.0
+offset_bottom = 76.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Minimap" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 430.0
+offset_top = 8.0
+offset_right = 472.0
+offset_bottom = 50.0
+mouse_filter = 2
+texture = ExtResource("7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RegionLabel" type="Label" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 52.0
+offset_right = 480.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="."]
+visible = false
+offset_left = 215.0
+offset_top = 250.0
+offset_right = 275.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 10
+text = "[Space]"
+
+[node name="Status" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 8.0
+offset_right = 340.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="Toast" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 440.0
+offset_bottom = 60.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="Dialogue" type="ColorRect" parent="."]
+visible = false
+offset_left = 20.0
+offset_top = 256.0
+offset_right = 460.0
+offset_bottom = 348.0
+color = Color(0.04, 0.03, 0.1, 0.88)
+
+[node name="Speaker" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 310.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="Text" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 430.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+
+[node name="MapView" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 360.0
+
+[node name="Background" type="TextureRect" parent="MapView"]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture = ExtResource("8")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="MapView"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 310.0
+offset_bottom = 22.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+text = "World Map  (M to close)"
+
+[node name="SnowButton" type="TextureButton" parent="MapView"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 129.0
+offset_right = 141.0
+offset_bottom = 171.0
+texture_normal = ExtResource("9")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SnowLabel" type="Label" parent="MapView"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 171.0
+offset_right = 161.0
+offset_bottom = 185.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 9
+text = "Snow Region"
+horizontal_alignment = 1
+
+[node name="DesertButton" type="TextureButton" parent="MapView"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 164.0
+offset_right = 406.0
+offset_bottom = 206.0
+texture_normal = ExtResource("9")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="DesertLabel" type="Label" parent="MapView"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 206.0
+offset_right = 426.0
+offset_bottom = 220.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 9
+text = "Desert Region"
+horizontal_alignment = 1
+
+[node name="CaveButton" type="TextureButton" parent="MapView"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 279.0
+offset_right = 283.0
+offset_bottom = 321.0
+texture_normal = ExtResource("9")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CaveLabel" type="Label" parent="MapView"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 321.0
+offset_right = 303.0
+offset_bottom = 335.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 9
+text = "The Cave"
+horizontal_alignment = 1
+
+[node name="Tint" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.1, 0.9, 0.35, 0)
+
+[node name="Fade" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="White" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

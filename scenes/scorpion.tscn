@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/props/scorpion.png" id="1"]
+[ext_resource type="Script" path="res://scripts/bob.gd" id="2"]
+
+[node name="Scorpion" type="Node2D"]
+
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("2")
+texture = ExtResource("1")
+position = Vector2(0, 0)
+scale = Vector2(0.15, 0.15)
+offset = Vector2(0, -146.5)

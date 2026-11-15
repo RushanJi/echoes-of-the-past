@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c81nanstho3bi"
+path="res://.godot/imported/Cave Music.mp3-639600466d6af8e432786f62c3f3b528.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Cave Music.mp3"
+dest_files=["res://.godot/imported/Cave Music.mp3-639600466d6af8e432786f62c3f3b528.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

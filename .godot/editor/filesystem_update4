@@ -1,0 +1,3 @@
+res://scenes/cutscene.tscn
+res://shaders/past.gdshader
+res://scripts/dialogue.gd

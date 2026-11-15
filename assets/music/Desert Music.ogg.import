@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0djkgo8gy7ej"
+path="res://.godot/imported/Desert Music.ogg-316f4a633e5cbce683656397f5e021da.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Desert Music.ogg"
+dest_files=["res://.godot/imported/Desert Music.ogg-316f4a633e5cbce683656397f5e021da.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

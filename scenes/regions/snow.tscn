@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/snow.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/maps/snow.png" id="2"]
+[ext_resource type="Script" path="res://scripts/spot.gd" id="3"]
+[ext_resource type="Texture2D" path="res://assets/props/snownpc.png" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="5"]
+[ext_resource type="Texture2D" path="res://assets/props/blocking_tree.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/props/sapling.png" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="8"]
+
+[node name="Snow" type="Node2D"]
+script = ExtResource("1")
+y_sort_enabled = true
+music = "snow"
+
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+scale = Vector2(1.5, 1.5)
+z_index = -10
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Outline" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-663, -150, -483, -150, -483, -30, 4.5, -30, 4.5, -186, -108, -186, -108, -355.5, 207, -355.5, 207, -186, 109.5, -186, 109.5, -30, 582, -30, 582, 672, -663, 672)
+
+[node name="Block1" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-468, -25.5, -175.5, -25.5, -175.5, 192, -468, 192)
+
+[node name="Block2" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(147, -18, 477, -18, 477, 214.5, 147, 214.5)
+
+[node name="Block3" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-355.5, 357, -25.5, 357, -25.5, 634.5, -355.5, 634.5)
+
+[node name="Block4" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(312, 304.5, 552, 304.5, 552, 469.5, 312, 469.5)
+
+[node name="Block5" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-108, 147, -33, 147, -33, 244.5, -108, 244.5)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(49.5, 627)
+
+[node name="Present" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Past" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spots" type="Node2D" parent="."]
+
+
+[node name="FortressDoor" type="Node2D" parent="Spots"]
+script = ExtResource("3")
+position = Vector2(49.5, -366)
+reach = 100
+
+[node name="Villager1" parent="Present" instance=ExtResource("5")]
+position = Vector2(-273, 267)
+dialogue = "snow_1"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager2" parent="Present" instance=ExtResource("5")]
+position = Vector2(267, 267)
+dialogue = "snow_2"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager3" parent="Present" instance=ExtResource("5")]
+position = Vector2(12, 552)
+dialogue = "snow_3"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager4" parent="Present" instance=ExtResource("5")]
+position = Vector2(417, 537)
+dialogue = "snow_4"
+texture = ExtResource("4")
+height = 90
+
+[node name="Villager5" parent="Present" instance=ExtResource("5")]
+position = Vector2(-558, 192)
+dialogue = "snow_5"
+texture = ExtResource("4")
+height = 90
+
+[node name="LakeSpot" type="Node2D" parent="Present"]
+script = ExtResource("3")
+position = Vector2(-595.5, -123)
+reach = 80
+
+[node name="Tree" type="Node2D" parent="Present"]
+position = Vector2(-573, -10.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Present/Tree"]
+texture = ExtResource("6")
+position = Vector2(0, 0)
+scale = Vector2(0.9, 0.9)
+offset = Vector2(0, -144.5)
+
+[node name="Body" type="StaticBody2D" parent="Present/Tree"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionPolygon2D" parent="Present/Tree/Body"]
+build_mode = 1
+polygon = PackedVector2Array(-90, -37.5, 90, -37.5, 90, 4.5, -90, 4.5)
+
+[node name="Sapling" type="Node2D" parent="Past"]
+position = Vector2(-573, -10.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Past/Sapling"]
+texture = ExtResource("7")
+position = Vector2(0, 0)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(0, -91.5)
+
+[node name="SaplingSpot" type="Node2D" parent="Past"]
+script = ExtResource("3")
+position = Vector2(-573, 4.5)
+reach = 90
+
+[node name="Player" parent="." instance=ExtResource("8")]
+
