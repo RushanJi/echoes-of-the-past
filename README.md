@@ -4,7 +4,7 @@
 
 ---
 
-## Backs2tory
+## Backstory
 
 Long ago, the continent was a lush, unified forest paradise. However, a devastating war unleashed massive pollution across the land, fracturing the climate and splitting the world into two extreme territories: a scorching desert and a frozen wasteland. 
 
