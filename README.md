@@ -1,62 +1,20 @@
 # Echoes Of The Past
 
-**Echoes Of The Past** is a 2D time-traveling action-adventure RPG. Uncover the hidden truth of a fractured world, manipulate the timeline to solve environmental puzzles, and restore balance to a continent torn apart by ancient warfare.
+## Information
+This game is about two clans who had fought each other so much, the land split into hot and cold. you need to gather the ice and fire gem with the help of the time gem, to bounce back in time and save this world.
 
----
+## Tech Stack
+Godot was used to create the game, using GDScript, with no external frameworks. assets were mainly obtained from Pinterest, but the title screen was handmade.
 
-## Backstory
+## Problems
+The main issue during development was getting stuck in walls when switching between the Present and Past (T), which was fixed by adding a quick collision check before allowing the time-swap
 
-Long ago, the continent was a lush, unified forest paradise. However, a devastating war unleashed massive pollution across the land, fracturing the climate and splitting the world into two extreme territories: a scorching desert and a frozen wasteland. 
-
----
-
-## Controls
-
-| Key / Input | Action | Description |
-| :--- | :--- | :--- |
-| **`W A S D`** | Move | Navigate your character through the world. |
-| **`Spacebar`** | Interact | Talk to NPCs, open chests, pull saplings, and interact with objects. |
-| **`X `/` Click`** | Attack | Swing your sword in combat. |
-| **`T`** | Time Shift | Triggers a green screen flash to toggle between the **Past** and **Present**. |
-| **`M`** | World Map | Opens the full-screen map from your minimap UI for Fast Travel. |
-
-### Mechanics
-* **Time Travel (`T`):** Traveling to the past alters the environment and NPC placements.
-* **Fast Travel (`M`):** Once unlocked, open the big map to view fast travel icons on either side of the continent. Locked regions appear **grayed out** until discovered.
-* **Inventory:** Key items fly to the corner of your screen upon acquisition for easy tracking.
-
----
-
-## Game Progression & Walkthrough
-
-### The Secret Society (Cave Region)
-1. **Awakening:** You begin trapped inside a mysterious cave inhabited by the **Secret Society**. Speak to the various NPCs to learn that they are intentionally hiding the outside world from you.
-2. **The Chest:** Locate the hidden chest in the corner of the cave. Opening it grants you two essential items:
-   * **The Minimap:** Unlocks the `M` world map interface.
-   * **The Time Gem:** Flies into your corner HUD, unlocking the `T` time-shift ability.
-3. **Escaping the Cave:** In the present, fences and guards block the northern exit. Press **`T`** to shift to the **Past**—before the Secret Society claimed the cave and built the barriers. Walk through the unblocked exit to enter the Desert Region.
-
-### The Trial of the Desert (Hot Region)
-1. **The Heirloom Sword:** Explore the bustling desert town and speak to the special merchant standing in front of a market stall. He guards a legendary blade passed down through generations, refusing to part with it.
-2. **Altering History:** Press **`T`** to travel to the **Past** and speak with the merchant's ancestor. Convince him to pass down a decree: *"One day a hero will come with the glow of heroism, and the sword will be theirs."*
-3. **The Trial of the Desert:** Return to the **Present** (`T`). The merchant recognizes the prophecy, but demands proof of your worth. Complete the **Trial of the Desert**:
-   * **Objective:** Collect **5 scorpions** scattered across the desert map within **60 seconds**. *(You may retry as many times as needed).*
-4. **The Desert Boss:** Claim your sword from the merchant and march to the Desert Castle. 
-   * The boss spawns with a **bright flash**, relentlessly following you.
-   * Defeat him using your sword to obtain the **Fire Gem**.
-   * The screen fades to white, transporting you to the Snow Region.
-
-### The Frozen Fortress (Cold Region)
-1. **The Blocked Lake:** Speak with the local snow villagers, then head toward the lake in the corner of the map. A massive, ancient tree blocks your path.
-2. **Butterfly Effect:** Press **`T`** to travel to the **Past**, where the massive tree is just a **small sapling**. Uproot the sapling, then return to the **Present** (`T`) to find the path completely clear.
-3. **Diving Minigame:** Interact with the lake to launch an underwater minigame.
-   * **Objective:** Click the bubbles that appear to get closer to the palace key, upon winning, we revieve the palace key.
-4. **The Snow Boss:** Use the key to enter the Frozen Fortress. Face the Snow Boss, with **higher health and faster movement speed** than the Desert Boss. Defeat him to claim the **Ice Gem**.
-
----
-
-## Finale
-Once the **Ice Gem** joins the **Fire Gem** is obtained:
-1. The Fire and Ice Gems float to the center of the screen and fuse together.
-2. A blinding flash engulfs the screen, transitioning to the full-screen **World Map**.
-3. Before your eyes, the desert and snow heal, transforming back into the lush, unified **Forested Continent**.
+## Our Game
+### Opening
+it starts with a cutscene, showing that the continent used to be forested, but because of a war, that cause pollution, the land split into hot and cold. 
+### The Cave
+You start in a cave map where there are many cave npcs called the secret society with different dialogs, saying you cant leave, and they are hiding the world from you. you find a chest in the corner of the cave, and when you open it, you obtain a minimap, where when you press M, it opens a larger map, with fast travel icons where u can fast travel only when you unlocked the region. if the region is locked, the icon will be grayed out. along with the map, is a time gem, which pops from the chest towards the corner of your screen. when you click T, it greens out the screen and sends you to the past, where the secret society did not reside in the cave, and the fences blocking the cave exit at the top are not there, so you exit the cave. 
+### The Desert
+You reach the desert region, and fast travel for desert is unlocked. when you click T again, you return to the present. everytime u enter and exit a new region, time returns back to present. the desert region should be full of desert npcs but infront of one market, there is a special merchant with a sword infront. he says this sword was passed by generations and generations and all, so you should be able to go back in time, and tell the ancestor of the merchant to give the sword to him in the future for a prophecy and the merchant wants verification of the person who shall wield this, so when you go back to the present, the merchant requires you to pass the Trial Of The Desert, which is to collect 5 scorpions scattered across the map in 1 min. if you fail, you can always try again, but if you complete it, he will hand you the sword, and you can go towards the castle and fight the desert boss, spawns with a bright flash. he faces the side the player is in and move towards it. the player should use the sword and beat the boss. once beaten, the boss should drop a fire gem, and it should move towards the corner of the screen next to the time gem. 
+### The Snow
+The screen fades and you appear in the snow region. this region too, is filled with snow npcs with special dialogues. a tree is going to block the entrance to a lake at the corner of the map. the player should go back in time and remove the small sapling. then when you go back to the present, the path is clear and you can go to the lake and interact with it. then a diving mini game pops up with an ocean backdrop. the player should spam space bar and make the diver inch towards the key to the palace. once obtained, the key should go to the corner of the screen below the time gem. the player should head to the fortress and defeat the snow boss, which has same mechanics as other boss, but more health and faster. once beaten, the ice gem will drop and go to the corner of the screen next to firegem. then all a cutscene shows where the fire gem and ice gem merge together and with a bright flash, the big map shows, and becomes the forested big map, and the game ends.
