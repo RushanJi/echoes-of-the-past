@@ -14,6 +14,15 @@ Godot was used to create the game, using GDScript, with no external frameworks. 
 ## Problems
 The main issue during development was getting stuck in walls when switching between the Present and Past (T), which was fixed by adding a quick collision check before allowing the time-swap
 
+## Installation
+Step 1: Download this repository as a ZIP File
+Step 2: Install Godot
+Step 3: Open Godot and click import
+Step 4: select the ZIP file
+Step 4: Select Open and click import after choosing the installation directory
+Step 5: Click Echoes Of The Past, and select Run
+Step 6: Play and Enjoy!
+
 ## Our Game
 ### Link
 https://rushanji.itch.io/echoes-of-the-past
